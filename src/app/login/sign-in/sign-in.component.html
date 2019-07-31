@@ -1,0 +1,21 @@
+<div class="main valign-wrapper container">
+<div class="sign-in z-depth-2">
+  <div class="row">
+    <form [formGroup]="loginForm">
+        <div class="input-field user-name col m12">
+          <input id="userName" type="text" class="validate" [formControl]="loginForm.controls['USER_NAME']">
+          <label for="userName">User Name</label>
+          <span class="error" *ngIf="loginForm.controls['USER_NAME'].hasError('required') && loginForm.controls['USER_NAME'].touched">User Name is Required</span>
+        </div>
+        <div class="input-field col m12">
+          <input id="password" type="password" class="validate" [formControl]="loginForm.controls['PASSWORD']">
+          <label for="password">Password</label>
+          <span class="error" *ngIf="loginForm.controls['PASSWORD'].hasError('required') && loginForm.controls['PASSWORD'].touched">Password is required</span>
+        </div>
+        <div class="col m12 submit_btn">
+            <a class="waves-effect waves-light btn" [class.disabled]="!loginForm.valid" (click)="submit()">Submit</a>
+        </div>
+    </form>
+  </div>
+</div>
+</div>
