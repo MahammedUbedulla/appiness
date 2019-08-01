@@ -1,0 +1,10 @@
+.user{
+    width: 24% !important;
+    margin: 12px;
+}
+.user p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}

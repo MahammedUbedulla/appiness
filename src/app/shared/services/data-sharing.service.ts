@@ -27,15 +27,18 @@ export class DataSharingService {
   }
 
   checkUser(user){
-    console.log(this.DefaultData)
-    this.DefaultData.users.forEach(ele => {
-      if(ele.login == user.USER_NAME){
+    let findUser = this.DefaultData.users.find((data) => {
+      if(data.login == user.USER_NAME)
+      return true
+    })
+
+    if(findUser){
         localStorage.setItem('token', JSON.stringify(user));
-        this.toastr('Successfully LogedIn!')
         this.router.navigateByUrl('/dashboard');
-      }
-    });
-    this.toastr('User is not Available in data. Please enter valid user!')
+      this.toastr('User Successfully Login!');
+    }else{
+      this.toastr('User is not Available in data. Please enter valid user!')
+    }
   }
 
   toastr(text){
