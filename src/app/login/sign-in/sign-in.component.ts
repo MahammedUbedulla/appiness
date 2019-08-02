@@ -29,6 +29,19 @@ export class SignInComponent implements OnInit {
     this.httpService.getUsers().subscribe((data) => {
       this.dataService.setUsers(data);   
     })
+
+    // this.httpService.getUsers().subscribe({
+    //   next(data){
+    //     this.dataService.setUsers(data); 
+    //     console.log('Success!!', data)
+    //   },
+    //   error(error){
+    //     console.log(error);
+    //   },
+    //   complete(){
+    //     window.confirm('Succefully Done!')
+    //   }
+    // })
   }
 
   submit(){

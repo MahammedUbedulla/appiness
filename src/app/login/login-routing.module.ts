@@ -10,7 +10,7 @@ import { LogoutGuard } from '../shared/auth/logout.guard';
 const routes: Routes = [
   { path:'', redirectTo: 'login', pathMatch: 'full'},
   { path:'login', component: SignInComponent, canActivate: [LogoutGuard] },
-  { path:'dashboard', component: LayoutComponent, canActivate: [AuthGuard], canDeactivate: [DashDeactivateGuard] },
+  { path:'dashboard', component: LayoutComponent, canActivate: [AuthGuard]},
   { path:'**', redirectTo:''}
 ];
 
