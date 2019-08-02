@@ -5,12 +5,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from '../shared/auth/auth.guard';
 import { DashDeactivateGuard } from '../shared/auth/dash-deactivate.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LogoutGuard } from '../shared/auth/logout.guard';
 
 const routes: Routes = [
   { path:'', redirectTo: 'login', pathMatch: 'full'},
-  { path:'login', component: SignInComponent},
+  { path:'login', component: SignInComponent, canActivate: [LogoutGuard] },
   { path:'dashboard', component: LayoutComponent, canActivate: [AuthGuard], canDeactivate: [DashDeactivateGuard] },
-  { path:'**', redirectTo:'' }
+  { path:'**', redirectTo:''}
 ];
 
 @NgModule({

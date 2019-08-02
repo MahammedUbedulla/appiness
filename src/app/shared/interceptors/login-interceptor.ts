@@ -22,6 +22,7 @@ export class LoginInterceptor implements HttpInterceptor {
 
         if (token) {
             request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
+            console.log('Successfully Intercept!!')
         }
 
         if (!request.headers.has('Content-Type')) {

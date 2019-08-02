@@ -24,6 +24,9 @@ export class DataSharingService {
 
   logout(){
     localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+    this.DefaultData.isLogin = null;
+    this.SubjectData.next(this.DefaultData);
   }
 
   checkUser(user){
@@ -34,8 +37,10 @@ export class DataSharingService {
 
     if(findUser){
         localStorage.setItem('token', JSON.stringify(user));
+        this.DefaultData.isLogin = localStorage.getItem('token') || null;
+        this.SubjectData.next(this.DefaultData);
         this.router.navigateByUrl('/dashboard');
-      this.toastr('User Successfully Login!');
+        this.toastr('User Successfully Login!');
     }else{
       this.toastr('User is not Available in data. Please enter valid user!')
     }

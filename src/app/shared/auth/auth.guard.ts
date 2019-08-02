@@ -8,21 +8,22 @@ import { DataSharingService } from '../services/data-sharing.service';
 })
 export class AuthGuard implements CanActivate{
 
-  public getToken = localStorage.getItem('token');
-  
+  isLogin: any;
 
-  constructor(public router: Router, public dataService: DataSharingService){}
+  constructor(public dataService: DataSharingService, public router: Router){
+    this.dataService.asObservableData.subscribe((data) => this.isLogin = data.isLogin)
+  }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      console.log(this.getToken)
-      if(this.getToken){
+      console.log(this.isLogin)
+      if(this.isLogin){
         this.dataService.toastr('Successfully Authenticate!')
         return true;
       }else{
         this.dataService.logout();
-        this.dataService.toastr('Wrong Authentication! Clear Cahce..Try Again')
+        this.dataService.toastr('Wrong Authentication! Clear Cache..Try Again')
         this.router.navigate(['/login']);
-        return false
+        return false;
       }
   }
 
