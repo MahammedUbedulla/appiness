@@ -6,13 +6,18 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { ReposComponent } from './repos/repos.component';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
     LoginRoutingModule,
-    ReactiveFormsModule, FormsModule
+    ReactiveFormsModule, FormsModule, MatBottomSheetModule, 
+    // BrowserAnimationsModule
   ],
-  declarations: [SignInComponent, DashboardComponent, LayoutComponent]
+  declarations: [SignInComponent, DashboardComponent, LayoutComponent, ReposComponent],
+  entryComponents: [ReposComponent]
 })
 export class LoginModule { }

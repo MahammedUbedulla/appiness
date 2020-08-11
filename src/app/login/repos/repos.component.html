@@ -1,0 +1,10 @@
+<div id="repos">
+  <ng-container *ngFor="let repo of userRepos; let i = index">
+    <h6>{{i+1}}. {{repo.name}}</h6>
+    <ul class="subsec">
+      <li><b>Created At:</b> &nbsp; {{repo?.created_at || '--'}}</li>
+      <li><b>Language:</b> &nbsp; {{repo?.language || '--'}}</li>
+      <li><b>Default Branch</b>  &nbsp; {{repo?.default_branch || '--'}}</li>
+    </ul>
+  </ng-container>
+</div>

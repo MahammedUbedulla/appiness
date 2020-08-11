@@ -1,8 +1,14 @@
 <div id="dashboard">
   <div class="row">
-    <div class="col l3 m4 s6 user z-depth-1" *ngFor="let user of usersData">
-      <p>{{user.login}}</p>
-      <p><a href="{{user.followers_url}}" target="_blanck">{{user.followers_url}}</a></p>
-    </div>
+    <ng-container *ngFor="let user of usersData">
+      <div class="col l3 m4 s6 user z-depth-1" (click)="openRepos(user.login)">
+        <p>{{user.login | titlecase}}</p>
+        <p><a title="{{user.repos_url}}" target="_blanck">{{user.login | titlecase}} Repos</a></p>
+      </div>
+    </ng-container>
   </div>
+</div>
+
+<div class="loader valign-wrapper" *ngIf="loading">
+  <h5 class="center-align">Loading...</h5>
 </div>

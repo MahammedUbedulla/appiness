@@ -9,8 +9,7 @@ export class HttpService {
 
   constructor(public http: HttpClient) { }
 
-  getUsers(){
-    let url = 'https://api.github.com/users';
+  getUsers(url){
     return this.http.get(url).pipe(map(res => res));
   }
 }

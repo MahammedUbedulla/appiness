@@ -24,9 +24,10 @@ export class SignInComponent implements OnInit {
    this.getUsersData();
   }
 
-
+  // this is for to get all users
   getUsersData(){
-    this.httpService.getUsers().subscribe((data) => {
+    let action = 'https://api.github.com/users';
+    this.httpService.getUsers(action).subscribe((data) => {
       this.dataService.setUsers(data);   
     })
 
