@@ -7,6 +7,7 @@ import { DataSharingService } from './services/data-sharing.service';
 import { DashDeactivateGuard } from './auth/dash-deactivate.guard';
 import { AuthGuard } from './auth/auth.guard';
 import { LogoutGuard } from './auth/logout.guard';
+// import { SerachPipePipe } from './pipes/serach-pipe.pipe';
 
 @NgModule({
   imports: [

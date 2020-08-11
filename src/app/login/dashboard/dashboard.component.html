@@ -1,6 +1,12 @@
 <div id="dashboard">
   <div class="row">
-    <ng-container *ngFor="let user of usersData">
+    <div class="input-field user-name col m12">
+      <input id="userName" type="text" [(ngModel)]="query">
+      <label for="userName">Search Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let user of usersData | serachPipe: query">
       <div class="col l3 m4 s6 user z-depth-1" (click)="openRepos(user.login)">
         <p>{{user.login | titlecase}}</p>
         <p><a title="{{user.repos_url}}" target="_blanck">{{user.login | titlecase}} Repos</a></p>

@@ -12,6 +12,7 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-shee
 export class DashboardComponent implements OnInit {
   usersData: any;
   public loading: Boolean = false;
+  public query:string = '';
   constructor(public dataService: DataSharingService, public httpService: HttpService, private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  // This is for to get repos of selected user
   openRepos(user){
     this.loading = true
     let action = 'https://api.github.com/users/' + user +'/repos';
@@ -38,10 +40,14 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  // It will open the Bottom sheet component
   openBottomSheet(repos): void {
     this._bottomSheet.open(ReposComponent, {
       data: repos,
     });
   }
+
+  //
+
 
 }
